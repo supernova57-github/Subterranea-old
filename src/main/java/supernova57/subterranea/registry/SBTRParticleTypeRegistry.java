@@ -1,8 +1,6 @@
 package supernova57.subterranea.registry;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.FlameParticle;
-import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -26,11 +24,8 @@ public class SBTRParticleTypeRegistry {
 	
 	@SubscribeEvent
 	public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-		@SuppressWarnings("resource")
-		ParticleEngine particleEngine = Minecraft.getInstance().particleEngine;
-		
-		particleEngine.register(SNOWFLAKE.get(), SnowflakeParticle.SnowflakeBuilder::new);
-		particleEngine.register(PHOSPHORUS_FLAME.get(), FlameParticle.Provider::new);
+		event.register(SNOWFLAKE.get(), SnowflakeParticle.SnowflakeBuilder::new);
+		event.register(PHOSPHORUS_FLAME.get(), FlameParticle.Provider::new);
 	}
 	
 	public static void modifyParticles() {

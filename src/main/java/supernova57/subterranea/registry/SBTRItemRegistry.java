@@ -76,9 +76,8 @@ public class SBTRItemRegistry {
 	public static final RegistryObject<Item> CRACKED_SHALE_BRICK_STAIRS = Subterranea.ITEMS.register("cracked_shale_brick_stairs", () -> new BlockItem(SBTRBlockRegistry.CRACKED_SHALE_BRICK_STAIRS.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
 	public static final RegistryObject<Item> CRACKED_SHALE_BRICK_WALL = Subterranea.ITEMS.register("cracked_shale_brick_wall", () -> new BlockItem(SBTRBlockRegistry.CRACKED_SHALE_BRICK_WALL.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
 	
-
-	public static final RegistryObject<Item> RED_PHOSPHORUS_LANTERN = Subterranea.ITEMS.register("red_phosphorus_lantern", () -> new BlockItem(SBTRBlockRegistry.RED_PHOSPHORUS_LANTERN.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
 	public static final RegistryObject<Item> UNLIT_RED_PHOSPHORUS_LANTERN = Subterranea.ITEMS.register("unlit_red_phosphorus_lantern", () -> new BlockItem(SBTRBlockRegistry.UNLIT_RED_PHOSPHORUS_LANTERN.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
+	public static final RegistryObject<Item> RED_PHOSPHORUS_LANTERN = Subterranea.ITEMS.register("red_phosphorus_lantern", () -> new BlockItem(SBTRBlockRegistry.RED_PHOSPHORUS_LANTERN.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
 
 	public static final RegistryObject<StandingAndWallBlockItem> UNLIT_RED_PHOSPHORUS_TORCH = Subterranea.ITEMS.register("unlit_red_phosphorus_torch", () -> new StandingAndWallBlockItem(SBTRBlockRegistry.UNLIT_RED_PHOSPHORUS_TORCH.get(), SBTRBlockRegistry.UNLIT_RED_PHOSPHORUS_WALL_TORCH.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));
 	public static final RegistryObject<StandingAndWallBlockItem> RED_PHOSPHORUS_TORCH = Subterranea.ITEMS.register("red_phosphorus_torch", () -> new StandingAndWallBlockItem(SBTRBlockRegistry.RED_PHOSPHORUS_TORCH.get(), SBTRBlockRegistry.RED_PHOSPHORUS_WALL_TORCH.get(), new Item.Properties().tab(SUBTERRANEA_BLOCKS)));

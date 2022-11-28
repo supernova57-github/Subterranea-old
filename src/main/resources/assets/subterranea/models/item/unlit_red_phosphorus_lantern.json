@@ -1,6 +1,15 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "subterranea:item/unlit_phosphorus_lantern"
+  "parent": "subterranea:block/unlit_red_phosphorus_lantern",
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 1, 0],
+      "scale": [0.8, 0.8, 0.8]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 3, 0],
+      "scale": [0.4, 0.4, 0.4]
+    }
   }
 }

@@ -1,6 +1,10 @@
 {
   "parent": "minecraft:block/template_torch",
+  
   "textures": {
     "torch": "subterranea:block/unlit_red_phosphorus_torch"
-  }
+  },
+  
+  "render_type": "cutout"
+  
 }

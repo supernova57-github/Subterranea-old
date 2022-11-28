@@ -13,7 +13,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -42,7 +41,6 @@ public class Subterranea {
     public Subterranea() {
 
     	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
         
         MinecraftForge.EVENT_BUS.register(this);
         
@@ -51,16 +49,12 @@ public class Subterranea {
         SBTREntityTypeRegistry.register();
         SBTRItemRegistry.register();
         SBTRParticleTypeRegistry.register();
-        //SBTRStructureRegistry.register();
+        SBTRStructureRegistry.register();
         
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
     	SBTRParticleTypeRegistry.modifyParticles();
-    }
-
-    private void clientSetup(final FMLClientSetupEvent event) {
-    	SBTRBlockRegistry.setRenderTypes();
     }
 
 }

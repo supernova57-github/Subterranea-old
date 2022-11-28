@@ -1,0 +1,9 @@
+{
+  "type": "subterranea:mountain_fortress",
+  "biomes": "#subterranea:has_structure/mountain_fortress",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "start_pool": "subterranea:mountain_fortress/start",
+  "size": 15
+
+}

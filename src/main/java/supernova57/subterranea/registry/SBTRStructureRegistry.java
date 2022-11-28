@@ -9,7 +9,7 @@ import supernova57.subterranea.world.gen.structure.MountainFortressStructure;
 public class SBTRStructureRegistry {
 	
 	public static final RegistryObject<StructureType<MountainFortressStructure>> MOUNTAIN_FORTRESS 
-		= Subterranea.STRUCTURE_TYPES.register("mountain_fortress", () -> new MountainFortressFeature(Reference.BIG_STRUCTURE_CODEC));
+		= Subterranea.STRUCTURE_TYPES.register("mountain_fortress", () -> MountainFortressStructure.STRUCTURE_TYPE);
 	
 	public static void register() {
 		Subterranea.STRUCTURE_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());

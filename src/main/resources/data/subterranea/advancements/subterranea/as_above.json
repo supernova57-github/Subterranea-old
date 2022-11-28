@@ -19,9 +19,17 @@
     "found_mountain_fortress": {
       "trigger": "minecraft:location",
       "conditions": {
-        "location": {
-          "feature": "subterranea:mountain_fortress"
-        }
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "subterranea:mountain_fortress"
+              }
+            }
+          }
+        ]
       }
     }
   },

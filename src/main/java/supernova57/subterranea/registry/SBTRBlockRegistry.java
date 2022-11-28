@@ -1,7 +1,5 @@
 package supernova57.subterranea.registry;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -91,16 +89,5 @@ public class SBTRBlockRegistry {
 	public static void register() {
 		Subterranea.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
-	
-	@SuppressWarnings("removal")
-	public static void setRenderTypes() {
-		ItemBlockRenderTypes.setRenderLayer(HANGING_VINES.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(HANGING_VINES_PLANT.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(UNLIT_RED_PHOSPHORUS_TORCH.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(UNLIT_RED_PHOSPHORUS_WALL_TORCH.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(RED_PHOSPHORUS_TORCH.get(), RenderType.cutout());
-		ItemBlockRenderTypes.setRenderLayer(RED_PHOSPHORUS_WALL_TORCH.get(), RenderType.cutout());
-	}
-	
 
 }
