@@ -137,8 +137,13 @@ public class MountainFortressStructure extends Structure {
 				
 				pos = new BlockPos(startingX + (i % 58), y, startingZ + (int)(i / 58));
 				
-				if (chunkPos.equals(new ChunkPos(pos)) && REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
-					world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+				if (chunkPos.equals(new ChunkPos(pos))) {
+					if (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
+						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+					} else if (world.getBlockState(pos).getBlock().equals(Blocks.COAL_BLOCK)) {
+						// Replaces the coal marker block indicating an important cavity for redstone.
+						world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+					}
 				} else {
 					terminatedColumns.add(i);
 				}

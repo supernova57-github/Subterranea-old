@@ -204,9 +204,9 @@ public class SnowflakeEntity extends Projectile {
         if (!this.level.isClientSide) {
         	this.kill();
        		for (int i = 0; i < 100; i++) {
-        		double randomSphericalX = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * 2.0D * Math.PI, 'x');
-        		double randomSphericalY = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * 2.0D * Math.PI, 'y');
-        		double randomSphericalZ = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * 2.0D * Math.PI, 'z');
+        		double randomSphericalX = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * Math.PI, 'x');
+        		double randomSphericalY = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * Math.PI, 'y');
+        		double randomSphericalZ = MathUtils.sphericalToCartesian(this.random.nextDouble() * 1.5D, this.random.nextDouble() * 2.0D * Math.PI, this.random.nextDouble() * Math.PI, 'z');
         		((ServerLevel)this.level).sendParticles(SBTRParticleTypeRegistry.SNOWFLAKE.get(), this.getX() + randomSphericalX, this.getY() + randomSphericalY, this.getZ() + randomSphericalZ, 1, 0.0D, 0.0D, 0.0D, 0.0D);
         	}
        	}
