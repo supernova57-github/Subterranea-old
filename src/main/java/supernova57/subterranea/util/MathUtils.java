@@ -15,13 +15,13 @@ public class MathUtils {
 	public static double sphericalToCartesian(double r, double theta, double phi, char coordinate) {
 		switch (coordinate) {
 			case 'x':
-				return r * Math.cos(theta) * Math.cos(phi);
+				return r * Math.cos(theta) * Math.sin(phi);
 			case 'y':
-				return r * Math.sin(theta) * Math.cos(phi);
+				return r * Math.sin(theta) * Math.sin(phi);
 			case 'z':
-				return r * Math.sin(phi);
+				return r * Math.cos(phi);
 			default:
-				return r * Math.cos(theta) * Math.cos(phi); 
+				return r * Math.cos(theta) * Math.sin(phi); 
 		}
 	}
 	
