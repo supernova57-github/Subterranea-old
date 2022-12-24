@@ -17,10 +17,12 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.DirtPathBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -47,7 +49,7 @@ public class MountainFortressStructure extends Structure {
 	public static final HashSet<Class<?>> REPLACEABLE_BLOCK_TYPES 
 		= new HashSet<>(Set.of(AirBlock.class, LiquidBlock.class, BushBlock.class,
 				GrassBlock.class, DoublePlantBlock.class,
-				TallGrassBlock.class, StairBlock.class)); 
+				TallGrassBlock.class, StairBlock.class, DirtPathBlock.class)); 
 	
 	public static final HashSet<Class<?>> GROUND_BLOCK_TYPES 
 		= new HashSet<>(Set.of(GrassBlock.class, LiquidBlock.class)); 
@@ -66,8 +68,6 @@ public class MountainFortressStructure extends Structure {
 	
 	private final Holder<StructureTemplatePool> startPool;
 	private final int size;
-
-	public static ArrayList<ChunkPos> deadChunks = new ArrayList<>();
 
 	public MountainFortressStructure(Structure.StructureSettings settings, 
 			Holder<StructureTemplatePool> startPool,
@@ -88,6 +88,7 @@ public class MountainFortressStructure extends Structure {
 
 	
 	public void afterPlace(WorldGenLevel world, StructureManager manager, ChunkGenerator generator, RandomSource random, BoundingBox boundary, ChunkPos chunkPos, PiecesContainer container) {
+		
 		generateFoundation(world, manager, generator, random, boundary, chunkPos, container);
 		generateStaircase(world, manager, generator, random, boundary, chunkPos, container);
 	}
@@ -132,7 +133,7 @@ public class MountainFortressStructure extends Structure {
 		
 		while (y >= 60) {
 			for (int i = 0; i < SBTRStructureData.MOUNTAIN_FORTRESS_FOUNDATION_BLOCKS.length; i++) {
-								
+						
 				if (terminatedColumns.contains(i) || SBTRStructureData.MOUNTAIN_FORTRESS_FOUNDATION_BLOCKS[i] == 0) continue;
 				
 				pos = new BlockPos(startingX + (i % 58), y, startingZ + (int)(i / 58));
@@ -140,9 +141,16 @@ public class MountainFortressStructure extends Structure {
 				if (chunkPos.equals(new ChunkPos(pos))) {
 					if (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
 						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+					} else if (world.getBlockState(pos).getBlock().equals(Blocks.WHITE_WOOL)) {
+						/* Replaces the white wool marker block. (Prevents the loop from terminating
+						before the coal block is replaced). */
+						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+
 					} else if (world.getBlockState(pos).getBlock().equals(Blocks.COAL_BLOCK)) {
 						// Replaces the coal marker block indicating an important cavity for redstone.
 						world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+					} else {
+						terminatedColumns.add(i);
 					}
 				} else {
 					terminatedColumns.add(i);
@@ -151,6 +159,7 @@ public class MountainFortressStructure extends Structure {
 			y--;
 			if (terminatedColumns.size() == SBTRStructureData.MOUNTAIN_FORTRESS_FOUNDATION_BLOCKS.length) break;
 		}	
+		
 
 	}
 	
@@ -233,17 +242,11 @@ public class MountainFortressStructure extends Structure {
 		 */
 		HashSet<List<Integer>> terminatedColumns = new HashSet<>();		
 		
-		// If the dead chunk list is getting too large, remove all but the latest 25 chunks.
-		if (deadChunks.size() > 40) {
-			for (int i = 0; i < deadChunks.size() - 5; i++) {
-				deadChunks.remove(0);
-			}
-		}
 		
-		// Start a loop to descend y-levels (stop no matter what at y = 60).
+		// Start a loop to descend y-levels (stop no matter what after 45 layers).
 //		staircaseGeneration:
-		while (y >= 60) {
-						
+		while (y >= container.calculateBoundingBox().maxY() - 20 - 45) {
+			
 			// Run this code if the castle gate is facing north or south.
 			if (zIncrement == 0) {
 				/*
@@ -269,12 +272,8 @@ public class MountainFortressStructure extends Structure {
 							if (y >= minY && z > startingZ && z < startingPieceBoundary.maxZ() - 7) {
 								if (generateStaircaseRow(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement)) {
 									minY = y;
-									if (!deadChunks.contains(new ChunkPos(chunkPos.x, chunkPos.z - 1))) deadChunks.add(new ChunkPos(chunkPos.x, chunkPos.z - 1));
-									if (!deadChunks.contains(chunkPos)) deadChunks.add(chunkPos);
-									if (!deadChunks.contains(new ChunkPos(chunkPos.x, chunkPos.z + 1))) deadChunks.add(new ChunkPos(chunkPos.x, chunkPos.z + 1));
-									Subterranea.LOGGER.info("DEAD CHUNKS: " + deadChunks);
-
 									Subterranea.LOGGER.info("GROUND FOUND AT Y = " + y);
+
 								}
 							} else { // If we have hit the ground, generate a foundation for those stairs.
 								generateStaircaseFoundation(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, false);
@@ -314,12 +313,7 @@ public class MountainFortressStructure extends Structure {
 								if (generateStaircaseRow(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement)) {
 									minY = y;
 									
-									if (!deadChunks.contains(new ChunkPos(chunkPos.x - 1, chunkPos.z))) deadChunks.add(new ChunkPos(chunkPos.x - 1, chunkPos.z));
-									if (!deadChunks.contains(chunkPos)) deadChunks.add(chunkPos);
-									if (!deadChunks.contains(new ChunkPos(chunkPos.x + 1, chunkPos.z))) deadChunks.add(new ChunkPos(chunkPos.x + 1, chunkPos.z));
 									
-									Subterranea.LOGGER.info("DEAD CHUNKS: " + deadChunks);
-
 									Subterranea.LOGGER.info("GROUND FOUND AT Y = " + y);
 								}
 							} else { // If we have hit the ground, generate a foundation for those stairs.
@@ -345,7 +339,7 @@ public class MountainFortressStructure extends Structure {
 
 	public static boolean generateStaircaseRow(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
 			int xIncrement, int zIncrement) {
-				
+						
 		int x = 0;
 		int z = 0;
 		BlockPos pos;
@@ -367,55 +361,56 @@ public class MountainFortressStructure extends Structure {
 			
 			pos = new BlockPos(startingX + x, y, startingZ + z);
 			
+			ChunkPos currentPos = new ChunkPos(pos);
+			if (Math.abs(chunkPos.x - currentPos.x) > 3 
+					|| Math.abs(chunkPos.z - currentPos.z) > 3) break;
+			
+			//Subterranea.LOGGER.info("XYZ:" + pos + "HEIGHT:" + world.getHeight(Types.WORLD_SURFACE, pos.getX(), pos.getZ()));
+
+			//if (i == layer * 2 + 7) Subterranea.LOGGER.info("CP:" + chunkPos +  " XYZ:" + pos + "HEIGHT (WG):" + world.getHeight(Types.WORLD_SURFACE_WG, pos.getX(), pos.getZ()));
+			//world.getHeight(Types.WORLD_SURFACE_WG, pos.getX(), pos.getZ());
 			
 			if (!chunkPos.equals(new ChunkPos(pos))) {
 				isInProperChunk = false;
-			} else {
-			
-				if (xIncrement == 0) {
-					if (deadChunks.contains(new ChunkPos(pos.north((16 * zIncrement))))) {
-						deadChunks.add(chunkPos);
-						isInProperChunk = false;
-						//Subterranea.LOGGER.info("I AM " + chunkPos + "; FOUND DEAD CHUNK @ " + new ChunkPos(pos.north((16 * zIncrement))));
-					}
-				} else {
-					if (deadChunks.contains(new ChunkPos(pos.west((16 * xIncrement))))) {
-						deadChunks.add(chunkPos);
-						isInProperChunk = false;
-						//Subterranea.LOGGER.info("I AM " + chunkPos + "; FOUND DEAD CHUNK @ " + new ChunkPos(pos.west((16 * xIncrement))));
-					}
-				}
-			}
+			} 
 			
 			currentBlockState = isInProperChunk ? world.getBlockState(pos) : null;
 			currentBlock = currentBlockState != null ? currentBlockState.getBlock() : null;
 			
-			if (isInProperChunk && (currentBlock instanceof AirBlock || currentBlock instanceof SnowyDirtBlock || currentBlock instanceof BushBlock)
+			
+			
+			if (/*isInProperChunk && */(currentBlock instanceof AirBlock || currentBlock instanceof SnowyDirtBlock || currentBlock instanceof BushBlock)
 					&& world.getBlockState(pos.above(50)).getBlock() instanceof AirBlock) {	
 				if (i <= layer * 2)  {
 					//if (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
 						if (i == layer * 2) {
 							world.setBlock(pos, Blocks.STONE_BRICK_SLAB.defaultBlockState(), 2);
+							for (int j = 1; j <= 15; j++) {
+								BlockState state = world.getBlockState(pos.above(j));
+								if (!state.is(BlockTags.STONE_BRICKS)
+										&& state.getBlock() != Blocks.STONE_BRICK_SLAB
+										&& state.getBlock() != Blocks.MOSSY_STONE_BRICK_SLAB) {
+									world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
+								}
+							}
 						} else {
 							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
 						}
 					//}
-					if (i == (layer * 2) - 1) {
-						Subterranea.LOGGER.info(currentBlockState.is(BlockTags.BASE_STONE_OVERWORLD));
-						if (currentBlock instanceof LiquidBlock 
-								|| currentBlock.equals(Blocks.DIRT) 
-								|| currentBlock.equals(Blocks.GRASS_BLOCK)
-								|| currentBlockState.is(BlockTags.BASE_STONE_OVERWORLD)) {
-							hasHitGround = true;
-							break;
-						}
-					}
+					
 				} else {
 					world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
 					if (currentBlock.equals(Blocks.DIRT)) world.setBlock(pos.below(), Blocks.GRASS_BLOCK.defaultBlockState(), 2);
 				} 
 
 			} 
+			
+			if (i == (layer * 2) - 1) {
+				if (layer != 1 && world.getHeight(Types.WORLD_SURFACE_WG, pos.getX(), pos.getZ()) >= pos.getY()) {
+					hasHitGround = true;
+					//break; TODO
+				} 
+			}
 			
 			x += xIncrement;
 			z += zIncrement;
@@ -427,7 +422,7 @@ public class MountainFortressStructure extends Structure {
 	
 	public static void generateStaircaseSide(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
 			int xIncrement, int zIncrement) {
-		
+				
 		int x = 0;
 		int z = 0;
 		BlockPos pos;
@@ -443,13 +438,13 @@ public class MountainFortressStructure extends Structure {
 					&& (world.getBlockState(pos).getBlock() instanceof AirBlock
 						|| world.getBlockState(pos).getBlock() instanceof SnowyDirtBlock)
 					&& world.getBlockState(pos.above(50)).getBlock() instanceof AirBlock) {	
-				
+				/*
 				if (deadChunks.contains(new ChunkPos(pos.north((16))))
 						|| deadChunks.contains(new ChunkPos(pos.east((16))))
 						|| deadChunks.contains(new ChunkPos(pos.south((16))))
 						|| deadChunks.contains(new ChunkPos(pos.west((16)))) ) {
 					continue;
-				}
+				}*/
 				
 				Direction facingDirection;
 				
@@ -484,8 +479,10 @@ public class MountainFortressStructure extends Structure {
 					} else {
 						if (i == 5) {
 							world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
-									.setValue(StairBlock.FACING, facingDirection),
-							2);
+									.setValue(StairBlock.FACING, facingDirection), 2);
+							for (int j = 1; j <= 15; j++) {
+								world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
+							}
 						} else {
 							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
 						}
@@ -499,8 +496,10 @@ public class MountainFortressStructure extends Structure {
 						2);
 					} else if (i == (layer * 2) + 3) {
 						world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
-								.setValue(StairBlock.FACING, facingDirection),
-						2);
+								.setValue(StairBlock.FACING, facingDirection), 2);
+						for (int j = 1; j <= 15; j++) {
+							world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
+						}
 					} else {
 						if (layer % 2 == 1 && i % 2 == 1 && i <= layer * 2) {
 							world.setBlock(pos, Blocks.CHISELED_STONE_BRICKS.defaultBlockState(), 2);
@@ -522,6 +521,7 @@ public class MountainFortressStructure extends Structure {
 	public static void generateStaircaseFoundation(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
 			int xIncrement, int zIncrement, HashSet<List<Integer>> terminatedColumns, boolean patterned) {
 		
+		
 		int x = 0;
 		int z = 0;
 		BlockPos pos;
@@ -537,23 +537,27 @@ public class MountainFortressStructure extends Structure {
 			blockColumn.add(pos.getX());
 			blockColumn.add(pos.getZ());
 
-			
+			if (i == (layer * 2)) Subterranea.LOGGER.info("Y VALUE (B): " + y);
+
 			if (terminatedColumns.contains(blockColumn)) continue;
-			
-			if (chunkPos.equals(new ChunkPos(pos))
-					&& (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())
+			if (i == (layer * 2)) Subterranea.LOGGER.info("Y VALUE: " + y);
+
+			if (chunkPos.equals(new ChunkPos(pos))) {
+				if ((REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())
 							|| world.getBlockState(pos).getBlock().equals(Blocks.DIRT))
-					&& !(world.getBlockState(pos.above()).getBlock() instanceof AirBlock)
-					&& (world.getBlockState(pos.above(5)).is(BlockTags.STONE_BRICKS)
+						&& !(world.getBlockState(pos.above()).getBlock() instanceof AirBlock)
+						&& (world.getBlockState(pos.above(5)).is(BlockTags.STONE_BRICKS)
 							|| world.getBlockState(pos.above(50)).getBlock() instanceof AirBlock)) {
 				
-				if (patterned && layer % 2 == 1 && i % 2 == 1 && i <= layer * 2) {
-					world.setBlock(pos, Blocks.STONE_BRICK_SLAB.defaultBlockState(), 2);
+					if (patterned && layer % 2 == 1 && i % 2 == 1 && i <= layer * 2) {
+						world.setBlock(pos, Blocks.CHISELED_STONE_BRICKS.defaultBlockState(), 2);
+					} else {
+						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+
+					}
 				} else {
-					world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+					terminatedColumns.add(blockColumn);
 				}
-			} else {
-				terminatedColumns.add(blockColumn);
 			}
 			
 			x += xIncrement;
@@ -567,14 +571,27 @@ public class MountainFortressStructure extends Structure {
 		
 		int x = context.chunkPos().getMiddleBlockX();
 		int z = context.chunkPos().getMiddleBlockZ();
-		int y = context.chunkGenerator(). getBaseHeight(
+		int y = context.chunkGenerator().getBaseHeight(
 				x,
 				z, 
 				Types.WORLD_SURFACE_WG,
 				context.heightAccessor(),
 				context.randomState()
 			);
-		
+
+		int[][] testPositions = {{-50, 0}, {50, 0}, {0, -50}, {0, 50}};
+		for (int[] coordPair : testPositions) {
+			int testY = context.chunkGenerator().getBaseHeight(
+					x + coordPair[0],
+					z + coordPair[1], 
+					Types.WORLD_SURFACE_WG,
+					context.heightAccessor(),
+					context.randomState()
+				);
+			// Make sure the ground is relatively level.
+			if (testY < y - 13 || testY > y + 13) return Optional.empty();	
+		}
+				
 		if (y < 80) return Optional.empty();
 		
 		return JigsawPlacement.addPieces(
