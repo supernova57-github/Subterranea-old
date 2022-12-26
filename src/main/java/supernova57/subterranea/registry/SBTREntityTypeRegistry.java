@@ -19,7 +19,6 @@ public class SBTREntityTypeRegistry {
 
 	public static final RegistryObject<EntityType<SnowflakeEntity>> SNOWFLAKE = Subterranea.ENTITIES.register("snowflake", () -> EntityType.Builder.<SnowflakeEntity>of(SnowflakeEntity::new, MobCategory.MISC).clientTrackingRange(8).sized(0.5F, 0.5F).build("snowflake"));
 	
-	
 	public static void register() {
 		Subterranea.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}

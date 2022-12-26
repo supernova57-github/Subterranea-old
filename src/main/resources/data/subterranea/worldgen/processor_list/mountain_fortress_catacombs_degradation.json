@@ -1,0 +1,2222 @@
+{
+  "processors": [
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_slab",
+              "Properties": {
+                "type": "bottom"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_slab",
+            "Properties": {
+                "type": "bottom"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_slab",
+              "Properties": {
+                "type": "double"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_slab",
+            "Properties": {
+                "type": "double"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_slab",
+              "Properties": {
+                "type": "top"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_slab",
+            "Properties": {
+                "type": "top"
+            }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_brick_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_brick_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_slab",
+              "Properties": {
+                "type": "bottom"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_slab",
+            "Properties": {
+                "type": "bottom"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_slab",
+              "Properties": {
+                "type": "double"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_slab",
+            "Properties": {
+                "type": "double"
+            }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_slab",
+              "Properties": {
+                "type": "top"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_slab",
+            "Properties": {
+                "type": "top"
+            }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "east",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "north",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "south",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "bottom",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "inner_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_left"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "outer_right"
+              }
+          }
+        },
+        {
+          "input_predicate": {
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "Name": "subterranea:shale_tile_stairs",
+              "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight"
+              }
+            },
+            "probability": 0.25
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tile_stairs",
+            "Properties": {
+                "facing": "west",
+                "half": "top",
+                "shape": "straight"
+              }
+          }
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.4
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:cracked_stone_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "subterranea:shale_bricks",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.4
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_bricks"
+          }
+        },
+        {
+          "input_predicate": {
+            "block": "subterranea:shale_tiles",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.4
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "subterranea:cracked_shale_tiles"
+          }
+        }
+        
+      ]
+    }
+  ]
+}

@@ -63,10 +63,18 @@ public class MountainFortressStructure extends Structure {
 				.apply(configInstance, MountainFortressStructure::new
 			));
 	
+	
+	
 	public static final StructureType<MountainFortressStructure> STRUCTURE_TYPE = () -> CODEC;
+	
+
+	public static final double MOSSY_PROB = 0.25D;
+	public static final double CRACKED_PROB = 0.4D;
+	
 	
 	private final Holder<StructureTemplatePool> startPool;
 	private final int size;
+	
 
 	public MountainFortressStructure(Structure.StructureSettings settings, 
 			Holder<StructureTemplatePool> startPool,
@@ -139,7 +147,15 @@ public class MountainFortressStructure extends Structure {
 				
 				if (chunkPos.equals(new ChunkPos(pos))) {
 					if (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
-						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+						double decayFactor = random.nextDouble();
+						if (decayFactor >= (1.0D - CRACKED_PROB)) {
+							world.setBlock(pos, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), 2);
+						} else if (decayFactor < (1.0D - CRACKED_PROB) && decayFactor >= (1.0D - CRACKED_PROB - MOSSY_PROB)) {
+							world.setBlock(pos, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
+						} else {
+							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+						}
+						
 					} else if (world.getBlockState(pos).getBlock().equals(Blocks.WHITE_WOOL)) {
 						/* Replaces the white wool marker block. (Prevents the loop from terminating
 						before the coal block is replaced). */
@@ -269,20 +285,20 @@ public class MountainFortressStructure extends Structure {
 						if (layer > 1) {
 							// If we haven't hit ground yet, keep generating stairs.
 							if (y >= minY && z > startingZ && z < startingPieceBoundary.maxZ() - 7) {
-								if (generateStaircaseRow(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement)) {
+								if (generateStaircaseRow(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, random)) {
 									minY = y;
 									Subterranea.LOGGER.info("GROUND FOUND AT Y = " + y);
 
 								}
 							} else { // If we have hit the ground, generate a foundation for those stairs.
-								generateStaircaseFoundation(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, false);
+								generateStaircaseFoundation(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, false, random);
 							}
 						}
 					} else { // If this isn't the place to generate stairs, generate a side of the staircase!
 						if (y >= minY) {
-							generateStaircaseSide(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement);
+							generateStaircaseSide(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, random);
 						} else {
-							generateStaircaseFoundation(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, true);
+							generateStaircaseFoundation(startingX, y, z, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, true, random);
 						}
 					}
 				}
@@ -309,21 +325,21 @@ public class MountainFortressStructure extends Structure {
 						if (layer > 1) {
 							// If we haven't hit ground yet, keep generating stairs.
 							if (y >= minY && x > startingX && x < startingPieceBoundary.maxX() - 7) {
-								if (generateStaircaseRow(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement)) {
+								if (generateStaircaseRow(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, random)) {
 									minY = y;
 									
 									
 									Subterranea.LOGGER.info("GROUND FOUND AT Y = " + y);
 								}
 							} else { // If we have hit the ground, generate a foundation for those stairs.
-								generateStaircaseFoundation(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, false);
+								generateStaircaseFoundation(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, false, random);
 							}
 						} 
 					} else { // If this isn't the place to generate stairs, generate a side of the staircase!
 						if (y >= minY) {
-							generateStaircaseSide(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement);
+							generateStaircaseSide(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, random);
 						} else {
-							generateStaircaseFoundation(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, true);
+							generateStaircaseFoundation(x, y, startingZ, layer, world, chunkPos, xIncrement, zIncrement, terminatedColumns, true, random);
 						}
 					}
 				}
@@ -337,7 +353,7 @@ public class MountainFortressStructure extends Structure {
 	}
 
 	public static boolean generateStaircaseRow(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
-			int xIncrement, int zIncrement) {
+			int xIncrement, int zIncrement, RandomSource random) {
 						
 		int x = 0;
 		int z = 0;
@@ -381,21 +397,34 @@ public class MountainFortressStructure extends Structure {
 			if (/*isInProperChunk && */(currentBlock instanceof AirBlock || currentBlock instanceof SnowyDirtBlock || currentBlock instanceof BushBlock)
 					&& world.getBlockState(pos.above(50)).getBlock() instanceof AirBlock) {	
 				if (i <= layer * 2)  {
-					//if (REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())) {
-						if (i == layer * 2) {
+					double decayFactor = random.nextDouble();
+
+					if (i == layer * 2) {
+						
+						if (decayFactor >= (1.0D - MOSSY_PROB)) {
+							world.setBlock(pos, Blocks.MOSSY_STONE_BRICK_SLAB.defaultBlockState(), 2);
+						} else {
 							world.setBlock(pos, Blocks.STONE_BRICK_SLAB.defaultBlockState(), 2);
-							for (int j = 1; j <= 15; j++) {
-								BlockState state = world.getBlockState(pos.above(j));
-								if (!state.is(BlockTags.STONE_BRICKS)
-										&& state.getBlock() != Blocks.STONE_BRICK_SLAB
-										&& state.getBlock() != Blocks.MOSSY_STONE_BRICK_SLAB) {
-									world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
-								}
+						}
+						
+						
+						for (int j = 1; j <= 15; j++) {
+							BlockState state = world.getBlockState(pos.above(j));
+							if (!state.is(BlockTags.STONE_BRICKS)
+									&& state.getBlock() != Blocks.STONE_BRICK_SLAB
+									&& state.getBlock() != Blocks.MOSSY_STONE_BRICK_SLAB) {
+								world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
 							}
+						}
+					} else {
+						if (decayFactor >= (1.0D - CRACKED_PROB)) {
+							world.setBlock(pos, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), 2);
+						} else if (decayFactor <= (1.0D - CRACKED_PROB) && decayFactor >= (1.0D - CRACKED_PROB - MOSSY_PROB)) {
+							world.setBlock(pos, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
 						} else {
 							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
 						}
-					//}
+					}
 					
 				} else {
 					world.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
@@ -420,7 +449,7 @@ public class MountainFortressStructure extends Structure {
 	}
 	
 	public static void generateStaircaseSide(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
-			int xIncrement, int zIncrement) {
+			int xIncrement, int zIncrement, RandomSource random) {
 				
 		int x = 0;
 		int z = 0;
@@ -437,64 +466,53 @@ public class MountainFortressStructure extends Structure {
 					&& (world.getBlockState(pos).getBlock() instanceof AirBlock
 						|| world.getBlockState(pos).getBlock() instanceof SnowyDirtBlock)
 					&& world.getBlockState(pos.above(50)).getBlock() instanceof AirBlock) {	
-				/*
-				if (deadChunks.contains(new ChunkPos(pos.north((16))))
-						|| deadChunks.contains(new ChunkPos(pos.east((16))))
-						|| deadChunks.contains(new ChunkPos(pos.south((16))))
-						|| deadChunks.contains(new ChunkPos(pos.west((16)))) ) {
-					continue;
-				}*/
+				
 				
 				Direction facingDirection;
 				
 				if (zIncrement == 0) {
-					
-					/*
-					if (deadChunks.contains(new ChunkPos(pos.north((16 * zIncrement))))) {
-						if (!deadChunks.contains(chunkPos)) deadChunks.add(chunkPos);
-						continue;
-					}
-					*/
-					
-					facingDirection = (xIncrement == 1 ? Direction.WEST: Direction.EAST);
-					
+					facingDirection = (xIncrement == 1 ? Direction.WEST: Direction.EAST);		
 				} else {
-					
-					/*
-					if (deadChunks.contains(new ChunkPos(pos.west((16 * xIncrement))))) {
-						if (!deadChunks.contains(chunkPos)) deadChunks.add(chunkPos);
-						continue;
-					}
-					*/
 					facingDirection = (zIncrement == 1 ? Direction.NORTH : Direction.SOUTH);
+				}
+				
+				double decayFactor = random.nextDouble();
+				BlockState stoneBricksBlock = Blocks.STONE_BRICKS.defaultBlockState();
+				BlockState stoneBrickStairsBlock = Blocks.STONE_BRICK_STAIRS.defaultBlockState();
+				if (decayFactor >= (1.0D - CRACKED_PROB)) {
+					stoneBricksBlock = Blocks.CRACKED_STONE_BRICKS.defaultBlockState();
+				}
+				if (decayFactor >= (1.0D - CRACKED_PROB - MOSSY_PROB) && decayFactor < (1.0 - CRACKED_PROB)) {
+					stoneBricksBlock = Blocks.MOSSY_STONE_BRICKS.defaultBlockState();
+					stoneBrickStairsBlock = Blocks.MOSSY_STONE_BRICK_STAIRS.defaultBlockState();
 				}
 				
 				if (layer == 1) {
 					if (i % 2 == 0) {
-						world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+						world.setBlock(pos, stoneBrickStairsBlock
 								.setValue(StairBlock.FACING, facingDirection)
 								.setValue(StairBlock.HALF, Half.TOP),
 						2);
 					} else {
 						if (i == 5) {
-							world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+							world.setBlock(pos, stoneBrickStairsBlock
 									.setValue(StairBlock.FACING, facingDirection), 2);
 							for (int j = 1; j <= 15; j++) {
 								world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
 							}
 						} else {
-							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+							world.setBlock(pos, stoneBricksBlock, 2);
 						}
 					}
 				} else {
 				
 					if (i == (layer * 2) + 2) {
-						world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+						world.setBlock(pos, stoneBrickStairsBlock
 								.setValue(StairBlock.FACING, facingDirection)
 								.setValue(StairBlock.HALF, Half.TOP),
 						2);
 					} else if (i == (layer * 2) + 3) {
-						world.setBlock(pos, Blocks.STONE_BRICK_STAIRS.defaultBlockState()
+						world.setBlock(pos, stoneBrickStairsBlock
 								.setValue(StairBlock.FACING, facingDirection), 2);
 						for (int j = 1; j <= 15; j++) {
 							world.setBlock(pos.above(j), Blocks.AIR.defaultBlockState(), 2);
@@ -503,7 +521,7 @@ public class MountainFortressStructure extends Structure {
 						if (layer % 2 == 1 && i % 2 == 1 && i <= layer * 2) {
 							world.setBlock(pos, Blocks.CHISELED_STONE_BRICKS.defaultBlockState(), 2);
 						} else {
-							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+							world.setBlock(pos, stoneBricksBlock, 2);
 						}
 					}
 				
@@ -518,7 +536,7 @@ public class MountainFortressStructure extends Structure {
 	}
 	
 	public static void generateStaircaseFoundation(int startingX, int y, int startingZ, int layer, WorldGenLevel world, ChunkPos chunkPos, 
-			int xIncrement, int zIncrement, HashSet<List<Integer>> terminatedColumns, boolean patterned) {
+			int xIncrement, int zIncrement, HashSet<List<Integer>> terminatedColumns, boolean patterned, RandomSource random) {
 		
 		
 		int x = 0;
@@ -536,10 +554,8 @@ public class MountainFortressStructure extends Structure {
 			blockColumn.add(pos.getX());
 			blockColumn.add(pos.getZ());
 
-			if (i == (layer * 2)) Subterranea.LOGGER.info("Y VALUE (B): " + y);
 
 			if (terminatedColumns.contains(blockColumn)) continue;
-			if (i == (layer * 2)) Subterranea.LOGGER.info("Y VALUE: " + y);
 
 			if (chunkPos.equals(new ChunkPos(pos))) {
 				if ((REPLACEABLE_BLOCK_TYPES.contains(world.getBlockState(pos).getBlock().getClass())
@@ -551,7 +567,16 @@ public class MountainFortressStructure extends Structure {
 					if (patterned && layer % 2 == 1 && i % 2 == 1 && i <= layer * 2) {
 						world.setBlock(pos, Blocks.CHISELED_STONE_BRICKS.defaultBlockState(), 2);
 					} else {
-						world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+						
+						double decayFactor = random.nextDouble();
+						
+						if (decayFactor >= (1.0D - CRACKED_PROB)) {
+							world.setBlock(pos, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), 2);
+						} else if (decayFactor < (1.0D - CRACKED_PROB) && decayFactor >= (1.0D - CRACKED_PROB - MOSSY_PROB)) {
+							world.setBlock(pos, Blocks.MOSSY_STONE_BRICKS.defaultBlockState(), 2);
+						} else {
+							world.setBlock(pos, Blocks.STONE_BRICKS.defaultBlockState(), 2);
+						}
 
 					}
 				} else {

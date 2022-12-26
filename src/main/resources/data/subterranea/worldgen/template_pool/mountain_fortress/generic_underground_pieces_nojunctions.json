@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "subterranea:mountain_fortress/torch_hallway",
-        "processors": "minecraft:empty",
+        "processors": "subterranea:mountain_fortress_catacombs_degradation",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -15,7 +15,7 @@
       "weight": 1,
       "element": {
         "location": "subterranea:mountain_fortress/lantern_hallway",
-        "processors": "minecraft:empty",
+        "processors": "subterranea:mountain_fortress_catacombs_degradation",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -24,7 +24,7 @@
       "weight": 1,
       "element": {
         "location": "subterranea:mountain_fortress/stairway",
-        "processors": "minecraft:empty",
+        "processors": "subterranea:mountain_fortress_catacombs_degradation",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
